@@ -9,13 +9,15 @@
 body {
   font-family: "Roboto", sans-serif;
   height: 100vh;
+  background: #f9f9f9;
 }
 
 .container {
   position: relative;
   overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 80%;
+  margin: auto;
 }
 
 .sidebar {
@@ -95,4 +97,19 @@ button:focus {
   transform: translateY(-100%);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+@media (max-width: 560px) {
+  .container {
+    height: 40%;
+  }
+  button {
+    display: none;
+  }
+  .sidebar h1 {
+    font-size: 24px;
+  }
+  p {
+    text-align: center;
+  }
 }

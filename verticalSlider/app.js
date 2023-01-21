@@ -4,7 +4,9 @@ const sidebar = document.querySelector('.sidebar');
 const mainSlide = document.querySelector('.main-slide');
 const slidesCount = mainSlide.querySelectorAll('div').length;
 const container = document.querySelector('.container');
-sidebar.style.top = `-${(slidesCount-1)*100}vh`;
+const height = container.clientHeight;
+
+sidebar.style.top = `-${(slidesCount-1)*height}px`;
 let activeSlideIndex = 0;
 
 upBtn.addEventListener('click', ()=>{
@@ -28,9 +30,22 @@ function changeSlide(direction){
     }
   }
 
-  const height = container.clientHeight;
+  // const height = container.clientHeight;
 
   mainSlide.style.transform = `translateY(-${activeSlideIndex*height}px)`;
 
   sidebar.style.transform = `translateY(${activeSlideIndex*height}px)`
 }
+
+function breakPoinnt(){
+  const screenWidth = window.screen.width;
+  if(screenWidth < 1000){
+    changeSlide('up');
+  }
+}
+
+function autoNext() {
+  breakPoinnt();
+  setTimeout(autoNext, 3000); 
+}
+setTimeout(autoNext, 3000);
