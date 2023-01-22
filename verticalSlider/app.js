@@ -46,6 +46,6 @@ function breakPoinnt(){
 
 function autoNext() {
   breakPoinnt();
-  setTimeout(autoNext, 3000); 
 }
-setTimeout(autoNext, 3000);
+
+setInterval(autoNext, 3000);
